@@ -45,12 +45,12 @@ def main():
     
     # 读取 SMTP 配置（如果启用了 Server酱，邮箱配置可选）
     smtp_required = not server_chan_enabled  # 如果没启用 Server酱，邮箱必需
-    smtp_server = get_env('SMTP_SERVER', required=smtp_required)
+    smtp_server = get_env('SMTP_SERVER', required=smtp_required) or 'smtp.placeholder.com'
     smtp_port_str = get_env('SMTP_PORT', '465')
     smtp_port = int(smtp_port_str) if smtp_port_str else 465
-    smtp_username = get_env('SMTP_USERNAME', required=smtp_required)
-    smtp_password = get_env('SMTP_PASSWORD', required=smtp_required)
-    smtp_security = get_env('SMTP_SECURITY', 'ssl')
+    smtp_username = get_env('SMTP_USERNAME', required=smtp_required) or 'placeholder@example.com'
+    smtp_password = get_env('SMTP_PASSWORD', required=smtp_required) or 'placeholder'
+    smtp_security = get_env('SMTP_SECURITY', 'ssl') or 'ssl'  # 确保不为空
     
     # 读取房间配置（支持多个房间）
     room_names = parse_list(get_env('ROOM_NAME', required=True))

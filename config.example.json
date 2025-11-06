@@ -1,0 +1,31 @@
+{
+  "username": "YOUR_STUDENT_ID",
+  "password": "YOUR_PASSWORD",
+  "check_interval": 1800,
+  "alert_balance": 10,
+  "smtp": {
+    "server": "smtp.qq.com",
+    "port": 465,
+    "username": "your@email.com",
+    "password": "your_authorization_code",
+    "security": "ssl"
+  },
+  "queries": [
+    {
+      "room_name": "114514",
+      "recipients": [
+        "recipient1@email.com",
+        "recipient2@email.com"
+      ],
+      "server_chan": {
+        "enabled": false,
+        "recipients": [
+          {
+            "uid": "your_uid",
+            "sendkey": "your_sendkey"
+          }
+        ]
+      }
+    }
+  ]
+}
